@@ -1,0 +1,51 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: kubernetes-dev
+  labels:
+    app: kubernetes-dev
+
+spec:
+  selector:
+    matchLabels:
+      app: kubernetes-dev
+
+  template:
+    metadata:
+      labels:
+        app: kubernetes-dev
+
+    # Container Spec
+    spec:
+      containers:
+        - name: kubernetes-dev
+          image: alicek106/kube-dev-python:0.4
+          ports:
+            - containerPort: 22
+          imagePullPolicy: Always
+
+      tolerations:
+       - effect: NoSchedule
+         key: node-role.kubernetes.io/master
+
+      nodeSelector: # Node selector : label key value
+        primary-master: "true" 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetes-dev-svc
+
+spec:
+  ports:
+    - name: ssh
+      port: 22
+      targetPort: 22
+      nodePort: 30000
+
+  selector:
+    app: kubernetes-dev
+
+  type: NodePort
+
