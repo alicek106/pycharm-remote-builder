@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: kubernetes-dev
-          image: alicek106/kube-dev-python:0.4
+          image: alicek106/pycharm-remote-builder:latest
           ports:
             - containerPort: 22
           imagePullPolicy: Always
@@ -28,8 +28,8 @@ spec:
        - effect: NoSchedule
          key: node-role.kubernetes.io/master
 
-      nodeSelector: # Node selector : label key value
-        primary-master: "true" 
+#      nodeSelector: # Node selector : label key value
+#        primary-master: "true" 
 
 ---
 apiVersion: v1
