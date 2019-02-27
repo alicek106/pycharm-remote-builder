@@ -16,7 +16,10 @@ For example in native docker engine, you can run container like above command.
 	# docker run -d -p 50000:22 --name mycontainer alicek106/pycharm-remote-builder:latest
     
 Or if you want to deploy container in kubernetes, refer the `kube-deployment.yaml`.
-	# kubectl apply -f kube-deployment.yaml
+
+```
+# kubectl apply -f kube-deployment.yaml
+```
 
 In `kube-deployment.yaml`, NodePort is set to 30000, so you can access using 30000 port.
 If you want to use a deserved port such as 22 (not recommanded), you should modify API server parameter of kube.
