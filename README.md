@@ -22,7 +22,7 @@ Or if you want to deploy container in kubernetes, refer the `kube-deployment.yam
 ```
 
 In `kube-deployment.yaml`, NodePort is set to 30000, so you can access using 30000 port.
-If you want to use a deserved port such as 22 (not recommanded), you should modify API server parameter of kube.
+If you want to use a reserved port such as 22 (not recommanded), you should modify API server parameter of kube.
 
 Setting in Pycharm
 ---
