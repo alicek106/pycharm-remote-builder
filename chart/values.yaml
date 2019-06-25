@@ -1,0 +1,20 @@
+# Default values for charts.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: alicek106/pycharm-remote-builder
+  tag: latest
+  pullPolicy: Always
+
+nameOverride: "kubernetes-dev"
+fullnameOverride: ""
+
+service:
+  type: NodePort
+  port: 22
+  nodePort: 30000
+
+tolerations: [{"effect":"NoSchedule", "key":"node-role.kubernetes.io/master"}]

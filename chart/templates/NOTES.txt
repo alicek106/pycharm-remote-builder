@@ -1,0 +1,12 @@
+1. How to get python remote interpreter endpoint :
+{{- if contains "NodePort" .Values.service.type }}
+  export NODE_PORT={{ .Values.service.nodePort }}
+  export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+  ssh root@$NODE_IP -p $NODE_PORT
+  You just set nodePort to {{ .Values.service.nodePort }}, so $NODE_PORT will be {{ .Values.service.nodePort }}
+{{- end }}
+
+2. Maintainer : alice_k106@naver.com
+3. Github : https://github.com/alicek106/pycharm-remote-builder
+
+Feel free to ask any question!
