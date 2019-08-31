@@ -24,6 +24,13 @@ Or if you want to deploy container in kubernetes, refer the `kube-deployment.yam
 In `kube-deployment.yaml`, NodePort is set to 30000, so you can access using 30000 port.
 If you want to use a reserved port such as 22 (not recommanded), you should modify API server parameter of kube.
 
+
+Install using helm
+------
+
+    # helm install -f chart/pycharm-remote-builder/values.yaml chart/pycharm-remote-builder/
+
+
 Setting in Pycharm
 ---
 ### [1] SSH credential and connection test
