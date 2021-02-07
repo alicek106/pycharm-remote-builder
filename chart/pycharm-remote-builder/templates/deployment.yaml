@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: {{ include "charts.fullname" . }}
   namespace: {{ $.Values.namespace }}
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "5"
   labels:
     app.kubernetes.io/name: {{ include "charts.name" . }}
     helm.sh/chart: {{ include "charts.chart" . }}
